@@ -4,23 +4,14 @@
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <!-- Global site tag (gtag.js) - Google Analytics -->
-    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-144833696-1"></script>
     <script async src="https://www.googletagmanager.com/gtag/js?id=UA-144833696-2"></script>
     <script>
-      window.dataLayer = [];
-      var path = window.location.href.split('/').pop()
+      window.dataLayer = window.dataLayer || [];
       function gtag(){dataLayer.push(arguments);}
       gtag('js', new Date());
-      if(path=="tags")
-        gtag('config', 'UA-144833696-1');
-      else
-        gtag('config', 'UA-144833696-2');
 
-
-
-
+      gtag('config', 'UA-144833696-2');
     </script>
-
     <title>
       {% if page.title %}
       {{ page.title | escape }}
