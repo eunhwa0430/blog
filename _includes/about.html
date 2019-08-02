@@ -22,5 +22,18 @@
   <form id="signup-form" method="post" accept-charset="utf-8" return false>
       <p>이름 <input type="text" name="userid" id ="userid"> </p>
       <p>비밀번호 <input type="text" name="passward" id="passward"> </p>
+      <input type="submit" value="전송">
+      <input type="reset" value="초기화">
   </form>
 </div>
+<script>
+  var form = document.getElementById('signup-form');
+  form.addEventListener('submit', function(event) {
+    event.preventDefault();
+    gtag('event', 'signup_form_complete', {
+      'event_callback': function() {
+        form.submit();
+      }
+    });
+  });
+</script>
