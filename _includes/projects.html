@@ -11,7 +11,7 @@
   <div class="card hoverable">
     <div class="card-image waves-effect waves-block waves-light geopattern activator" data-pattern-id="{{repo.name}}">
       <i class="material-icons waves-effect waves-block waves-light">more_vert</i>
-      <a class="card-title center-align valign-wrapper" href="{{repo.html_url}}" target="_blank">{{repo.name}}</a>
+      <a id="repo_ga" class="card-title center-align valign-wrapper" href="{{repo.html_url}}" target="_blank">{{repo.name}}</a>
     </div>
     <div class="card-content valign-wrapper center-align activator">
       <span class="activator grey-text text-darken-1">{{repo.description}}</span>
@@ -35,17 +35,22 @@
     </div>
   </div>
   <script>
-    let el = document.querySelector('a')
-    let url = el.getAttribute('href')
-    console.log(el, url)
-    el.addEventListener('click', (evt)=>{
-      evt.preventDefault()
-      gtag('event', 'project', {
-        'event_category': 'access',
-        'event_label': 'git'
-      });
-      window.location.replace(url)
+    let arr = document.querySelectorAll('#repo_ga')
+
+
+    arr.forEach(el=>{
+      el.addEventListener('click', (evt)=>{
+        evt.preventDefault()
+        var url = el.getAttribute('href')
+        console.log(el, url)
+        gtag('event', 'project', {
+          'event_category': 'access',
+          'event_label': 'git'
+        });
+        window.location.replace(url)
+      })
     })
+
   </script>
 </div>
 {% endfor %}
