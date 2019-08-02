@@ -36,8 +36,7 @@
   </div>
   <script>
     let arr = document.querySelectorAll('#repo_ga')
-
-
+    console.log('hoho')
     arr.forEach(el=>{
       el.addEventListener('click', (evt)=>{
         evt.preventDefault()
@@ -47,7 +46,7 @@
           'event_category': 'access',
           'event_label': 'git'
         });
-        window.location.replace(url)
+        // window.location.replace(url)
       })
     })
 
