@@ -41,12 +41,13 @@
       el.addEventListener('click', (evt)=>{
         evt.preventDefault()
         var url = el.getAttribute('href')
-        console.log(el, url)
         gtag('event', 'project', {
           'event_category': 'access',
           'event_label': 'git'
-        });
-        // window.location.replace(url)
+        })
+        setTimeout(() => {
+          window.location.replace(url)
+        }, 1000);
       })
     })
 
