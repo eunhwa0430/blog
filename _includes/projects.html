@@ -36,11 +36,14 @@
   </div>
   <script>
     let el = document.querySelector('a')
-    el.addEventListener('click', ()=>{
+    let url = el.getAttribute('href')
+    el.addEventListener('click', (evt)=>{
+      evt.preventDefault()
       gtag('event', 'project', {
         'event_category': 'access',
         'event_label': 'git'
       });
+      window.location.replace(url)
     })
   </script>
 </div>
