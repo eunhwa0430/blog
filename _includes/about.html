@@ -1,8 +1,3 @@
-<script
-  src="https://code.jquery.com/jquery-3.4.1.js"
-  integrity="sha256-WpOohJOqMqqyKL9FccASB9O0KwACQJpFTUBLTYOVvVU="
-  crossorigin="anonymous">
-</script>
 <div class="col s12 tag-div">
   <div class="user-pic center-align">
     <a href="{{site.github_profile}}" target="_blank"><img class="circle hoverable z-depth-1" src="{{site.baseurl}}/assets/res/user.png"></a>
@@ -18,46 +13,4 @@
       네이버 블로그 : https://blog.naver.com/dmsghk6049
     </p>
   </div>
-  <form id="signup-form" method="post" action="">
-      <p>이름 <input type="text" name="userid" id ="userid"> </p>
-      <p>비밀번호 <input type="text" name="passward" id="passward"> </p>
-      <button id="ajax">보내기</button>
-  </form>
 </div>
-<script>
-  $(function() {
-    $('#ajax').on('click', function() {
-      $.ajax({
-        url : './projects.hmtl',
-        type: 'POST',
-        data: {
-          'userid':$('#userid').val(),
-          'password':$('#password').val()
-        }
-      })
-      .done( (data) => {
-        gtag('event', 'send from', {
-          'event_category': 'done',
-          'event_label': 'git about'
-        });
-        console.log("done")
-      })
-      .fail( (data) => {
-        gtag('event', 'send from', {
-          'event_category': 'fail',
-          'event_label': 'git about'
-        });
-        console.log("fail")
-      })
-    })
-  })
-  // var form = document.getElementById('signup-form');
-  // form.addEventListener('submit', function(event) {
-  //   event.preventDefault();
-  //   gtag('event', 'signup_form_complete', {
-  //     'event_callback': function() {
-  //       form.submit();
-  //     }
-  //   });
-  // });
-</script>
