@@ -34,5 +34,14 @@
       </div>
     </div>
   </div>
+  <script>
+    let el = document.querySelector('a')
+    el.addEventListener('click', ()=>{
+      gtag('event', 'project', {
+        'event_category': 'access',
+        'event_label': 'git'
+      });
+    })
+  </script>
 </div>
 {% endfor %}
