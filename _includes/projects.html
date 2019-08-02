@@ -37,6 +37,7 @@
   <script>
     let el = document.querySelector('a')
     let url = el.getAttribute('href')
+    console.log(el, url)
     el.addEventListener('click', (evt)=>{
       evt.preventDefault()
       gtag('event', 'project', {
