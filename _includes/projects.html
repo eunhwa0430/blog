@@ -1,4 +1,9 @@
 {% assign sorted_repos = (site.github.public_repositories | sort: 'stargazers_count') | reverse  %}
+<script
+    src="https://code.jquery.com/jquery-3.4.1.js"
+    integrity="sha256-WpOohJOqMqqyKL9FccASB9O0KwACQJpFTUBLTYOVvVU="
+    crossorigin="anonymous">
+</script>
 <div class="col s12 switch">
   <label>
     Show forked projects
@@ -7,7 +12,7 @@
   </label>
 </div>
 {% for repo in sorted_repos %}
-<img src="http://www.google-analytics.com/collect?v=1&t=event&tid=UA-144833696-2&cid=test&dh=https%3A%2F%2Fgithub.com%2Feunhwa0430%2Fblog&dp=blog&ec=testing&ea=test">
+<!-- <img src="http://www.google-analytics.com/collect?v=1&t=event&tid=UA-144833696-2&cid=test&dh=https%3A%2F%2Fgithub.com%2Feunhwa0430%2Fblog&dp=blog&ec=testing&ea=test"> -->
 <div class="col s12 m6 l4" {% if repo.fork %}id="forked"{% endif %}>
   <div class="card hoverable">
     <div class="card-image waves-effect waves-block waves-light geopattern activator" data-pattern-id="{{repo.name}}">
@@ -35,6 +40,22 @@
       </div>
     </div>
   </div>
+  <script>
+    var settings = {
+      'async': true,
+      'crossDomain': true,
+      'url': 'http://www.google-analytics.com/collect',
+      'method': 'POST',
+      'data': 'v=1&t=event&tid=UA-144833696-2&cid=test&dh=https%3A%2F%2Fgithub.com%2Feunhwa0430%2Fblog&dp=blog&ec=testing&ea=ajax'
+    }
+    $(function() {
+      $('#repo_ga').on('click', function(){
+        $.ajax(settings).done(function(res) {
+          console.log(res)
+        })
+      })
+    })
+  </script>
   <!-- <script>
     let arr = document.querySelectorAll('#repo_ga')
     arr.forEach(el=>{
